@@ -145,10 +145,10 @@ public class PlayerController : MonoBehaviour
         }
         realPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, spawn, transform.rotation, transform);
-        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
-        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
-        ghostPlayerSC.Init(this, PlayerController.CharacterTypes.ghost);
+        _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
+        _realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
+        _ghostPlayerSC.Init(this, PlayerController.CharacterTypes.ghost);
 
         realPlayer.layer = this.gameObject.layer;
         ghostPlayer.layer = this.gameObject.layer;

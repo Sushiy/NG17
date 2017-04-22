@@ -39,14 +39,14 @@ public class CharacterStateController : MonoBehaviour {
     [SerializeField]
     CharacterStateBase currentState_SM2;//cutscene animations e.g. lightning
 
-    PlayerController playerParentControl;
+    //PlayerController playerParentControl;
     PlayerController.CharacterTypes charType;
     CharacterPhysics _charPhysics;
     public CharacterPhysics charPhysics { get { return _charPhysics; } }
 
     public void Init(PlayerController playerParentControl, PlayerController.CharacterTypes type)
     {
-        this.playerParentControl = playerParentControl;
+        //this.playerParentControl = playerParentControl;
         this.charType = type;
 
         currentState_SM0 = _characterIdleState;

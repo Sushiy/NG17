@@ -44,7 +44,7 @@ public class CharacterMoveState : CharacterStateBase
         float zMove = -moveAxis.y * speed;// * Time.deltaTime;
 
         //charPhysics.transform.Translate, Space.World);
-        Vector3 target = charPhysics.transform.position + new Vector3(xMove, 0, zMove);
+        //Vector3 target = charPhysics.transform.position + new Vector3(xMove, 0, zMove);
         //charPhysics.transform.position = Vector3.MoveTowards(charPhysics.transform.position, target, speed);
         Vector3 lookPositon = new Vector3(xMove, 0, zMove);// transform.position + new Vector3(xMove, 0, zMove) * 10.0f;
 

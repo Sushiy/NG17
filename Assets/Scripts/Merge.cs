@@ -5,11 +5,11 @@ using UnityEngine;
 public class Merge : MonoBehaviour {
 
     bool isMerged = false;
-    PlayerController controller;
+    //PlayerController controller;
 
 	// Use this for initialization
 	void Start () {
-        controller = GetComponentInParent<PlayerController>();
+        //controller = GetComponentInParent<PlayerController>();
     }
 	
 	// Update is called once per frame

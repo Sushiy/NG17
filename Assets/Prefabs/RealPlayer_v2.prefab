@@ -430,8 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8f0d07524aab34f846efa4cfc3c2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friction: 0.7
-  gravityScale: 0.25
+  friction: 0.9
 --- !u!114 &114750427271349824
 MonoBehaviour:
   m_ObjectHideFlags: 1

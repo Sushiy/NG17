@@ -7,15 +7,15 @@ public class CharacterPhysics : MonoBehaviour {
     [SerializeField]
     float friction = 50f;
 
-    [SerializeField]
-    float gravityScale = 0.5f;
+    //[SerializeField]
+    //float gravityScale = 0.5f;
 
     Vector3 targetDir;
     Vector3 targetDirMove;
-    Vector3 lookTarget;
+    //Vector3 lookTarget;
     float step;
     float stepMove;
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
 
 	// Use this for initialization
 	void Start () {
@@ -74,7 +74,7 @@ public class CharacterPhysics : MonoBehaviour {
 
         targetDir = Vector3.zero;
         targetDirMove = Vector3.zero;
-        lookTarget = Vector3.zero;
+        //lookTarget = Vector3.zero;
         step = 0;
         stepMove = 0;
     }
@@ -90,7 +90,7 @@ public class CharacterPhysics : MonoBehaviour {
             this.lookTarget = (this.lookTarget  + targetRot)/2;
         else
             */
-            this.lookTarget = targetRot;
+            //this.lookTarget = targetRot;
     }
 
     public void accumulateTargetDir(Vector3 targetPos)
