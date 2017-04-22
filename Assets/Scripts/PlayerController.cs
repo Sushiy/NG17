@@ -37,10 +37,13 @@ public class PlayerController : MonoBehaviour
     [System.Serializable]
     public struct CharacterSettings
     {
-        public float moveSpeed;
+        
         public float attackSphereCastRadius;
         public float attackLength;
         public float stunTime;
+
+        //public float maxspeed;
+        public float moveSpeed;
         public float gravityPower;
         public AnimationCurve gravityCurve;
         public float maxGravityDistance;
@@ -52,14 +55,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        /*
-        realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
-        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
-        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        realPlayerSC.Init(this, CharacterTypes.human);
-        ghostPlayerSC.Init(this, CharacterTypes.ghost);
-        */
+
         realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
