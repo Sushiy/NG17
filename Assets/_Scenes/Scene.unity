@@ -1512,6 +1512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745418302}
   - component: {fileID: 745418303}
+  - component: {fileID: 745418304}
   m_Layer: 0
   m_Name: Lightning Right
   m_TagString: Untagged
@@ -1568,6 +1569,86 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!82 &745418304
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745418301}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ce0bc17063bb7bf4e91d7fb8ff4e38df, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &766621703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,8 +1674,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 766621703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: -0.03}
-  m_LocalScale: {x: 1.6581696, y: 2.7032135, z: 1}
+  m_LocalPosition: {x: -0.009, y: 0.022, z: -0.03}
+  m_LocalScale: {x: 1.775545, y: 2.7667937, z: 1}
   m_Children: []
   m_Father: {fileID: 177888052}
   m_RootOrder: 0
@@ -1743,6 +1824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863873740}
   - component: {fileID: 863873741}
+  - component: {fileID: 863873742}
   m_Layer: 0
   m_Name: Lightning Left
   m_TagString: Untagged
@@ -1799,6 +1881,86 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!82 &863873742
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863873739}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ce0bc17063bb7bf4e91d7fb8ff4e38df, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &891050947
 Prefab:
   m_ObjectHideFlags: 0
@@ -2250,8 +2412,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1088745426}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.017, y: 0.03, z: -0.03}
-  m_LocalScale: {x: 2.7844877, y: 1.8072591, z: 1}
+  m_LocalPosition: {x: -0.031, y: 0.001, z: -0.03}
+  m_LocalScale: {x: 2.8825588, y: 1.8240511, z: 1}
   m_Children: []
   m_Father: {fileID: 2131377882}
   m_RootOrder: 0
@@ -2953,6 +3115,8 @@ MonoBehaviour:
   minLightningDelay: 5
   maxLightningDelay: 10
   strikingDelay: 1
+  windupLightning: {fileID: 8300000, guid: ce0bc17063bb7bf4e91d7fb8ff4e38df, type: 3}
+  instantLightning: {fileID: 8300000, guid: fbbbea3195042a24c99ab7e1688ee537, type: 3}
 --- !u!1 &1554693598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,8 +3681,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1946685278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: -0.03}
-  m_LocalScale: {x: 1.6581696, y: 2.7032135, z: 1}
+  m_LocalPosition: {x: -0.01, y: -0, z: -0.03}
+  m_LocalScale: {x: 1.7486299, y: 2.8328302, z: 1}
   m_Children: []
   m_Father: {fileID: 891050948}
   m_RootOrder: 0
@@ -3958,8 +4122,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135293402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: -0.03}
-  m_LocalScale: {x: 1.6581696, y: 2.7032135, z: 1}
+  m_LocalPosition: {x: -0.02, y: 0.02, z: -0.03}
+  m_LocalScale: {x: 1.7419562, y: 2.7210722, z: 1}
   m_Children: []
   m_Father: {fileID: 2031551335}
   m_RootOrder: 0
