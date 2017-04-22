@@ -16,7 +16,13 @@ public class CharacterIdleState : CharacterStateBase {
 
         //TODO: Play idle animations, text bubbles etc.
 
-        if(
+        bool attacking = playerParentControl.charInputs[(int)charType].attack;
+        if (attacking)
+        {
+            onEndState(charStateController.characterAttackState);
+        }
+
+        if (
             Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.x) > 0.0f ||
             Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.y) > 0.0f
             )

@@ -20,6 +20,13 @@ public class CharacterMoveState : CharacterStateBase
 
         move(moveAxis, charSpeed);
 
+
+        bool attacking = playerParentControl.charInputs[(int)charType].attack;
+        if (attacking)
+        {
+            onEndState(charStateController.characterAttackState);
+        }
+
         if (
             Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.x) == 0.0f ||
             Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.y) == 0.0f
@@ -27,6 +34,8 @@ public class CharacterMoveState : CharacterStateBase
         {
             onEndState(charStateController.characterIdleState);
         }
+
+        
     }
 
     void move(Vector2 moveAxis, float speed)

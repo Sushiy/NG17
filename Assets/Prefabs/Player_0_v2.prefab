@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4115209141532816}
   - component: {fileID: 114677175655336958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_0_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,3 +64,5 @@ MonoBehaviour:
   isXboxCtrl: 1
   _charSettings:
     moveSpeed: 3
+    attackSphereCastRadius: 0.5
+    attackLength: 1

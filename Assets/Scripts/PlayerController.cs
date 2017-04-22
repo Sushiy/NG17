@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
         public Vector2 moveAxis;
         public float switchValue;
         public bool attack;
+        public bool attackOld;
     }
     InputSet[] _charInputs = new InputSet[2];
     public InputSet[] charInputs { get { return _charInputs; } }
@@ -30,7 +31,8 @@ public class PlayerController : MonoBehaviour
     public struct CharacterSettings
     {
         public float moveSpeed;
-
+        public float attackSphereCastRadius;
+        public float attackLength;
     }
     [SerializeField]
     CharacterSettings _charSettings;
@@ -101,7 +103,12 @@ public class PlayerController : MonoBehaviour
         _charInputs[(int)CharacterTypes.ghost].switchValue = 0; 
 
         _charInputs[(int)CharacterTypes.human].moveAxis = new Vector3(rightStickX, rightStickY);
-        _charInputs[(int)CharacterTypes.human].attack = Mathf.Abs(triggerAxis) > 0.3f ? true : false;
+        if (!_charInputs[(int)CharacterTypes.human].attackOld && Mathf.Abs(triggerAxis) > 0.9f)
+        {
+            _charInputs[(int)CharacterTypes.human].attack = true;
+        }
+        else _charInputs[(int)CharacterTypes.human].attack = false;
+        _charInputs[(int)CharacterTypes.human].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.human].switchValue = 0;
     }
 }
