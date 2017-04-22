@@ -99,7 +99,12 @@ public class PlayerController : MonoBehaviour
         }
 
         _charInputs[(int)CharacterTypes.ghost].moveAxis = new Vector3(leftStickX, leftStickY);
-        _charInputs[(int)CharacterTypes.ghost].attack = Mathf.Abs(triggerAxis) > 0.3f ? true : false;
+        if (!_charInputs[(int)CharacterTypes.ghost].attackOld && Mathf.Abs(triggerAxis) > 0.9f)
+        {
+            _charInputs[(int)CharacterTypes.ghost].attack = true;
+        }
+        else _charInputs[(int)CharacterTypes.ghost].attack = false;
+        _charInputs[(int)CharacterTypes.ghost].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.ghost].switchValue = 0; 
 
         _charInputs[(int)CharacterTypes.human].moveAxis = new Vector3(rightStickX, rightStickY);

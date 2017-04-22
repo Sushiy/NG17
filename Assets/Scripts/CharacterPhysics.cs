@@ -13,4 +13,9 @@ public class CharacterPhysics : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void death()
+    {
+
+    }
 }
