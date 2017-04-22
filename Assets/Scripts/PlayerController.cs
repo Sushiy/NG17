@@ -6,7 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     public int playerIndex = 0;
 
-    public GameObject realPlayerPrefab, ghostPlayerPrefab;
+    public GameObject realPlayerPrefab;
+
+    public Material humanMat;
+    public Material ghostMat;
 
     public GameObject realPlayer, ghostPlayer;
     public CharacterStateController realPlayerSC, ghostPlayerSC;
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
     void Awake ()
     {
         realPlayer = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, transform.position, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
         realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
         realPlayerSC.Init(this, CharacterTypes.human);
@@ -58,6 +61,8 @@ public class PlayerController : MonoBehaviour
         string joystickName = Input.GetJoystickNames()[playerIndex];
 
         realPlayer.layer = this.gameObject.layer;
+        realPlayer.tag = "Human";
+        ghostPlayer.tag = "Ghost";
         ghostPlayer.layer = this.gameObject.layer;
         
         switch(joystickName)
@@ -116,6 +121,15 @@ public class PlayerController : MonoBehaviour
         else _charInputs[(int)CharacterTypes.human].attack = false;
         _charInputs[(int)CharacterTypes.human].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.human].switchValue = 0;
+
+        if (LightningManager.instance.isLightningStriking)
+        {
+            ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = ghostMat;
+        }
+        else
+        {
+            ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
+        }
     }
 
     public void respawn()
@@ -138,7 +152,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         realPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, spawn, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
         realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
         realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
