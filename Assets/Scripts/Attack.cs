@@ -25,17 +25,27 @@ public class Attack : MonoBehaviour
             attacking = true;
         }
 
+        attack();
+
+        
+    }
+    /// <summary>
+    /// Method that checks if you are pressing the attack button and then casting a sphere to check for collision
+    /// </summary>
+    public void attack()
+    {
         if (attacking)
         {
             RaycastHit hit;
             Vector3 position = transform.position;
             Vector3 direction = transform.forward;
             Debug.DrawLine(position, position + direction, Color.red);
-            if (Physics.SphereCast(position+direction, 0.5f, direction, out hit, 0.005f))
+            if (Physics.SphereCast(position, 0.5f, direction, out hit, 0.5f))
             {
-                if (hit.collider.gameObject.layer == 9)
+                int layer = hit.collider.gameObject.layer;
+                if (layer >= 8 && layer <= 11 && (layer != (8 + controller.playerIndex)))
                 {
-                    Debug.Log("we hit something");
+                    Debug.Log("we hit " + hit.collider.gameObject.layer.ToString());
                     Destroy(hit.collider.gameObject);
                 }
             }

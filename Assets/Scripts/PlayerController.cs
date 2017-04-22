@@ -16,9 +16,12 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
-        GameObject.Instantiate(ghostPlayerPrefab, transform.position, transform.rotation, transform);
+        GameObject goReal = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
+        GameObject goGhost = GameObject.Instantiate(ghostPlayerPrefab, transform.position, transform.rotation, transform);
         string joystickName = Input.GetJoystickNames()[playerIndex];
+
+        goReal.layer = this.gameObject.layer;
+        goGhost.layer = this.gameObject.layer;
         
         switch(joystickName)
         {
