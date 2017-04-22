@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public GameObject realPlayerPrefab, ghostPlayerPrefab;
 
     public GameObject realPlayer, ghostPlayer;
-    CharacterStateController realPlayerSC, ghostPlayerSC;
+    public CharacterStateController realPlayerSC, ghostPlayerSC;
 
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
@@ -116,5 +116,35 @@ public class PlayerController : MonoBehaviour
         else _charInputs[(int)CharacterTypes.human].attack = false;
         _charInputs[(int)CharacterTypes.human].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.human].switchValue = 0;
+    }
+
+    public void respawn()
+    {
+        Destroy(realPlayer);
+        Destroy(ghostPlayer);
+        int x = Random.Range(1, 5);
+        Vector3 spawn;
+        switch (x)
+        {
+            case 1: spawn = new Vector3(14f, 0, -9.9f);
+                break;
+            case 2: spawn = new Vector3(1.5f, 0, 9.14f);
+                break;
+            case 3: spawn = new Vector3(-14.27f, 0, 10.18f);
+                break;
+            case 4: spawn = new Vector3(-14.27f, 0, -9.94f);
+                break;
+            default: spawn = new Vector3(0,0,0);
+                break;
+        }
+        realPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, spawn, transform.rotation, transform);
+        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
+        realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
+        ghostPlayerSC.Init(this, PlayerController.CharacterTypes.ghost);
+
+        realPlayer.layer = this.gameObject.layer;
+        ghostPlayer.layer = this.gameObject.layer;
     }
 }

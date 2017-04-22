@@ -16,8 +16,10 @@ public class CharacterDeathState : CharacterStateBase
     {
         base.onEnterState();
 
-        Destroy(playerParentControl.ghostPlayer.gameObject);
-        Destroy(playerParentControl.realPlayer.gameObject);
+        playerParentControl.respawn();
+        
+
+        
 
     }
 
@@ -28,4 +30,6 @@ public class CharacterDeathState : CharacterStateBase
 
         base.onEndState(nextState);
     }
+
+    
 }
