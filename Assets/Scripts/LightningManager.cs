@@ -17,11 +17,20 @@ public class LightningManager : MonoBehaviour
     public AudioClip windupLightning;
     public AudioClip instantLightning;
 
+    public bool isLightningStriking = false;
+
     // Use this for initialization
     void Start ()
     {
         StartCoroutine(LightningStrikes());
 	}
+
+    private void Update()
+    {
+        //reset islighntingstriking on the next frame
+        if (isLightningStriking)
+            isLightningStriking = false;
+    }
 
     private IEnumerator LightningStrikes()
     {
@@ -29,6 +38,7 @@ public class LightningManager : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(minLightningDelay, maxLightningDelay));
             Debug.Log("Lightning should now strike");
+            isLightningStriking = true;
             bool leftLightning = Random.value > 0.5f;
             Light activeLight;
             if (leftLightning)
@@ -52,7 +62,6 @@ public class LightningManager : MonoBehaviour
                 activeLight.intensity = 0.4f;
                 yield return null;
             }
-
         }
 
     }
