@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LightningManager : MonoBehaviour
 {
+    public static LightningManager instance;
+
     public Light lightning_Left;
     public Light lightning_Right;
 
@@ -23,13 +25,11 @@ public class LightningManager : MonoBehaviour
     void Start ()
     {
         StartCoroutine(LightningLoop());
+        instance = this;
 	}
 
     private void Update()
     {
-        //reset islighntingstriking on the next frame
-        if (isLightningStriking)
-            isLightningStriking = false;
     }
 
     private IEnumerator LightningLoop()
@@ -69,5 +69,9 @@ public class LightningManager : MonoBehaviour
             activeLight.intensity = 0.4f;
             yield return null;
         }
+
+        //reset islighntingstriking on the next frame
+        if (isLightningStriking)
+            isLightningStriking = false;
     }
 }
