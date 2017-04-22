@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
         public float attackSphereCastRadius;
         public float attackLength;
         public float stunTime;
+        public float gravityPower;
+        public AnimationCurve gravityCurve;
+        public float maxGravityDistance;
     }
     [SerializeField]
     CharacterSettings _charSettings;
