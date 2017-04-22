@@ -18,7 +18,10 @@ public class CharacterAttackState : CharacterStateBase
     {
         base.onEnterState();
 
-        attack();
+        if(charType == 0)
+        {
+            attack();
+        }
         onEndState(charStateController.characterIdleState);
 
     }
@@ -43,7 +46,18 @@ public class CharacterAttackState : CharacterStateBase
             if (layer >= 8 && layer <= 11 && (layer != (8 + playerParentControl.playerIndex)))
             {
                 Debug.Log("we hit " + hit.collider.gameObject.layer.ToString());
-                Destroy(hit.collider.gameObject);
+                if(hit.collider.gameObject.tag == "Ghost")
+                {
+                    //you get sent to the damaged also called the stunned stage
+                    onEndState(charStateController.characterDamagedState);
+                }
+                else
+                {
+                    //you send your opponent to the death state
+                    CharacterStateController charStateOpponent = hit.collider.gameObject.GetComponent<CharacterStateController>();
+                    charStateOpponent.changeState_SM0(charStateOpponent.characterDeathState);
+
+                }
             }
         }
     }

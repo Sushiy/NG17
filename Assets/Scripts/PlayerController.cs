@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject realPlayerPrefab, ghostPlayerPrefab;
 
-    GameObject realPlayer, ghostPlayer;
+    public GameObject realPlayer, ghostPlayer;
     CharacterStateController _realPlayerSC, _ghostPlayerSC;
     public CharacterStateController humanPlayerSC {get { return _realPlayerSC; } }
     public CharacterStateController ghostPlayerSC { get { return _ghostPlayerSC; } }
@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
         public float moveSpeed;
         public float attackSphereCastRadius;
         public float attackLength;
+        public float stunTime;
+
         public float gravityPower;
         public AnimationCurve gravityCurve;
         public float maxGravityDistance;
@@ -104,7 +106,12 @@ public class PlayerController : MonoBehaviour
         }
 
         _charInputs[(int)CharacterTypes.ghost].moveAxis = new Vector3(leftStickX, leftStickY);
-        _charInputs[(int)CharacterTypes.ghost].attack = Mathf.Abs(triggerAxis) > 0.3f ? true : false;
+        if (!_charInputs[(int)CharacterTypes.ghost].attackOld && Mathf.Abs(triggerAxis) > 0.9f)
+        {
+            _charInputs[(int)CharacterTypes.ghost].attack = true;
+        }
+        else _charInputs[(int)CharacterTypes.ghost].attack = false;
+        _charInputs[(int)CharacterTypes.ghost].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.ghost].switchValue = 0; 
 
         _charInputs[(int)CharacterTypes.human].moveAxis = new Vector3(rightStickX, rightStickY);
@@ -115,5 +122,35 @@ public class PlayerController : MonoBehaviour
         else _charInputs[(int)CharacterTypes.human].attack = false;
         _charInputs[(int)CharacterTypes.human].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.human].switchValue = 0;
+    }
+
+    public void respawn()
+    {
+        Destroy(realPlayer);
+        Destroy(ghostPlayer);
+        int x = Random.Range(1, 5);
+        Vector3 spawn;
+        switch (x)
+        {
+            case 1: spawn = new Vector3(14f, 0, -9.9f);
+                break;
+            case 2: spawn = new Vector3(1.5f, 0, 9.14f);
+                break;
+            case 3: spawn = new Vector3(-14.27f, 0, 10.18f);
+                break;
+            case 4: spawn = new Vector3(-14.27f, 0, -9.94f);
+                break;
+            default: spawn = new Vector3(0,0,0);
+                break;
+        }
+        realPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, spawn, transform.rotation, transform);
+        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
+        realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
+        ghostPlayerSC.Init(this, PlayerController.CharacterTypes.ghost);
+
+        realPlayer.layer = this.gameObject.layer;
+        ghostPlayer.layer = this.gameObject.layer;
     }
 }

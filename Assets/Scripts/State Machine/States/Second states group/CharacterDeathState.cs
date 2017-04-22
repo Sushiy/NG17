@@ -5,13 +5,31 @@ using UnityEngine;
 public class CharacterDeathState : CharacterStateBase
 {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected override void onEnterState()
+    {
+        base.onEnterState();
+
+
+    }
+
+    public override void OnUpdateState()
+    {
+        base.onEnterState();
+
+        playerParentControl.respawn();
+        
+
+        
+
+    }
+
+
+    protected override void onEndState(CharacterStateBase nextState)
+    {
+        charStateController.changeState_SM0(nextState);
+
+        base.onEndState(nextState);
+    }
+
+    
 }
