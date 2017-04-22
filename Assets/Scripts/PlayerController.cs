@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject realPlayerPrefab, ghostPlayerPrefab;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
     public bool isXboxCtrl = true;
