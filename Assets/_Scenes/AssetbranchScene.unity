@@ -945,6 +945,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1009234148244706, guid: 1156e88380665514db4bfb87a7d43e9e,
         type: 2}
+    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
+        type: 2}
+      propertyPath: _charSettings.attackSphereCastRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
+        type: 2}
+      propertyPath: _charSettings.attackLength
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
   m_IsPrefabParent: 0
