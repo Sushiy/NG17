@@ -8,16 +8,51 @@ public class PlayerController : MonoBehaviour
 
     public GameObject realPlayerPrefab, ghostPlayerPrefab;
 
+    GameObject realPlayer, ghostPlayer;
+    CharacterStateController realPlayerSC, ghostPlayerSC;
+
     [HideInInspector]
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
     public bool isXboxCtrl = true;
 
+    public enum CharacterTypes { human = 0, ghost = 1}
+
+    public struct InputSet
+    {
+        public Vector2 moveAxis;
+        public float switchValue;
+        public bool attack;
+    }
+    InputSet[] _charInputs = new InputSet[2];
+    public InputSet[] charInputs { get { return _charInputs; } }
+
+    [System.Serializable]
+    public struct CharacterSettings
+    {
+        public float moveSpeed;
+
+    }
+    [SerializeField]
+    CharacterSettings _charSettings;
+    public CharacterSettings charSettings { get { return _charSettings; } }
+
     // Use this for initialization
     void Awake ()
     {
-        GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
-        GameObject.Instantiate(ghostPlayerPrefab, transform.position, transform.rotation, transform);
+        realPlayer = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, transform.position, transform.rotation, transform);
+        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
+        realPlayerSC.Init(this, CharacterTypes.human);
+        ghostPlayerSC.Init(this, CharacterTypes.ghost);
+
+        if(Input.GetJoystickNames().Length <= playerIndex)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         string joystickName = Input.GetJoystickNames()[playerIndex];
         
         switch(joystickName)
@@ -59,5 +94,12 @@ public class PlayerController : MonoBehaviour
             triggerAxis = Input.GetAxis("Axis5_" + playerIndex);
         }
 
+        _charInputs[(int)CharacterTypes.ghost].moveAxis = new Vector3(leftStickX, leftStickY);
+        _charInputs[(int)CharacterTypes.ghost].attack = Mathf.Abs(triggerAxis) > 0.3f ? true : false;
+        _charInputs[(int)CharacterTypes.ghost].switchValue = 0; 
+
+        _charInputs[(int)CharacterTypes.human].moveAxis = new Vector3(rightStickX, rightStickY);
+        _charInputs[(int)CharacterTypes.human].attack = Mathf.Abs(triggerAxis) > 0.3f ? true : false;
+        _charInputs[(int)CharacterTypes.human].switchValue = 0;
     }
 }
