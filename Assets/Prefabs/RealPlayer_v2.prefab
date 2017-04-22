@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4560592927740586}
   - component: {fileID: 33891637335265352}
-  - component: {fileID: 65594293958152502}
   - component: {fileID: 23048055866226130}
   m_Layer: 9
   m_Name: Cube
@@ -351,18 +350,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!65 &65594293958152502
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1340506572550570}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114525327974338454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -398,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c9de2ece725144a9745f1832c80e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugLines: 1
+  debugLines: 0
 --- !u!114 &114645927559339274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8f0d07524aab34f846efa4cfc3c2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friction: 0.7
+  gravityScale: 0.25
 --- !u!114 &114750427271349824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4640883a6f27fe948807a1e50daed1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugLines: 1
+  debugLines: 0
 --- !u!114 &114996284449161242
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
     public GameObject realPlayerPrefab, ghostPlayerPrefab;
 
     GameObject realPlayer, ghostPlayer;
-    CharacterStateController realPlayerSC, ghostPlayerSC;
+    CharacterStateController _realPlayerSC, _ghostPlayerSC;
+    public CharacterStateController humanPlayerSC {get { return _realPlayerSC; } }
+    public CharacterStateController ghostPlayerSC { get { return _ghostPlayerSC; } }
 
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
@@ -33,20 +35,23 @@ public class PlayerController : MonoBehaviour
         public float moveSpeed;
         public float attackSphereCastRadius;
         public float attackLength;
+        public float gravityPower;
+        public AnimationCurve gravityCurve;
+        public float maxGravityDistance;
     }
     [SerializeField]
     CharacterSettings _charSettings;
     public CharacterSettings charSettings { get { return _charSettings; } }
 
     // Use this for initialization
-    void Awake ()
+    void Start ()
     {
         realPlayer = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(ghostPlayerPrefab, transform.position, transform.rotation, transform);
-        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
-        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        realPlayerSC.Init(this, CharacterTypes.human);
-        ghostPlayerSC.Init(this, CharacterTypes.ghost);
+        _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
+        _realPlayerSC.Init(this, CharacterTypes.human);
+        _ghostPlayerSC.Init(this, CharacterTypes.ghost);
 
         if(Input.GetJoystickNames().Length <= playerIndex)
         {

@@ -41,31 +41,30 @@ public class CharacterStateController : MonoBehaviour {
 
     PlayerController playerParentControl;
     PlayerController.CharacterTypes charType;
-    CharacterPhysics charPhysics;
+    CharacterPhysics _charPhysics;
+    public CharacterPhysics charPhysics { get { return _charPhysics; } }
 
     public void Init(PlayerController playerParentControl, PlayerController.CharacterTypes type)
     {
         this.playerParentControl = playerParentControl;
         this.charType = type;
-    }
 
-    // Use this for initialization
-    void Start()
-    {
         currentState_SM0 = _characterIdleState;
-        currentState_SM1 = null;
+        currentState_SM1 = _characterSwitchState;
         currentState_SM2 = null;
 
-        charPhysics = GetComponent<CharacterPhysics>();
+        _charPhysics = GetComponent<CharacterPhysics>();
 
-        _characterIdleState.Init(this, playerParentControl, charType, charPhysics);
-        _characterMoveState.Init(this, playerParentControl, charType, charPhysics);
-        _characterAttackState.Init(this, playerParentControl, charType, charPhysics);
-        _characterDamagedState.Init(this, playerParentControl, charType, charPhysics);
-        _characterDeathState.Init(this, playerParentControl, charType, charPhysics);
-        _characterSwitchState.Init(this, playerParentControl, charType, charPhysics);
-        _characterLightningState.Init(this, playerParentControl, charType, charPhysics);
+        _characterIdleState.Init(this, playerParentControl, charType, _charPhysics);
+        _characterMoveState.Init(this, playerParentControl, charType, _charPhysics);
+        _characterAttackState.Init(this, playerParentControl, charType, _charPhysics);
+        _characterDamagedState.Init(this, playerParentControl, charType, _charPhysics);
+        _characterDeathState.Init(this, playerParentControl, charType, _charPhysics);
+        _characterSwitchState.Init(this, playerParentControl, charType, _charPhysics);
+        _characterLightningState.Init(this, playerParentControl, charType, _charPhysics);
     }
+
+
 
     // Update is called once per frame
     void Update () {
