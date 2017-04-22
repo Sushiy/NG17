@@ -22,7 +22,7 @@ public class LightningManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        StartCoroutine(LightningStrikes());
+        StartCoroutine(LightningLoop());
 	}
 
     private void Update()
@@ -32,7 +32,7 @@ public class LightningManager : MonoBehaviour
             isLightningStriking = false;
     }
 
-    private IEnumerator LightningStrikes()
+    private IEnumerator LightningLoop()
     {
         while (true)
         {
@@ -46,23 +46,28 @@ public class LightningManager : MonoBehaviour
             else
                 activeLight = lightning_Right;
 
-            AudioSource audiosrc = activeLight.GetComponent<AudioSource>();
             int numberOfStrikes = Random.Range(1, 4);
-            audiosrc.clip = windupLightning;
-            audiosrc.Play();
-            for (int i = 0; i < numberOfStrikes; i++)
-            {
-                if(i > 0)
-                {
-                    audiosrc.clip = instantLightning;
-                    audiosrc.Play();
-                }
-                activeLight.intensity = 4.0f;
-                yield return new WaitForSeconds(Random.Range(0.05f,0.25f));
-                activeLight.intensity = 0.4f;
-                yield return null;
-            }
+            StartCoroutine(LightningStrike(numberOfStrikes, activeLight));
         }
 
+    }
+
+    IEnumerator LightningStrike(int numberOfStrikes, Light activeLight)
+    {
+        AudioSource audiosrc = activeLight.GetComponent<AudioSource>();
+        audiosrc.clip = windupLightning;
+        audiosrc.Play();
+        for (int i = 0; i < numberOfStrikes; i++)
+        {
+            if (i > 0)
+            {
+                audiosrc.clip = instantLightning;
+                audiosrc.Play();
+            }
+            activeLight.intensity = 4.0f;
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.25f));
+            activeLight.intensity = 0.4f;
+            yield return null;
+        }
     }
 }
