@@ -40,11 +40,20 @@ public class CharacterMoveState : CharacterStateBase
 
     void move(Vector2 moveAxis, float speed)
     {
-        float xMove = moveAxis.x * speed * Time.deltaTime;
-        float zMove = -moveAxis.y * speed * Time.deltaTime;
+        float xMove = moveAxis.x * speed;// * Time.deltaTime;
+        float zMove = -moveAxis.y * speed;// * Time.deltaTime;
 
-        charPhysics.transform.Translate(xMove, 0, zMove, Space.World);
-        charPhysics.transform.LookAt(transform.position + new Vector3(xMove, 0, zMove) * 10.0f);
+        //charPhysics.transform.Translate, Space.World);
+        //Vector3 target = charPhysics.transform.position + new Vector3(xMove, 0, zMove);
+        //charPhysics.transform.position = Vector3.MoveTowards(charPhysics.transform.position, target, speed);
+        Vector3 lookPositon = new Vector3(xMove, 0, zMove);// transform.position + new Vector3(xMove, 0, zMove) * 10.0f;
+
+        Vector3 dir = (lookPositon).normalized;
+        charPhysics.accumulateLookTarget(dir);
+        charPhysics.accumulateTargetDirMove(dir);
+        charPhysics.accumulateSpeedMove(speed * Time.deltaTime);
+
+        
     }
 
     protected override void onEndState(CharacterStateBase nextState)

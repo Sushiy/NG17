@@ -63,6 +63,26 @@ MonoBehaviour:
   triggerAxis: 0
   isXboxCtrl: 1
   _charSettings:
-    moveSpeed: 3
+    moveSpeed: 20
     attackSphereCastRadius: 0.5
     attackLength: 1
+    gravityPower: 10
+    gravityCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: -2.9995077
+        outSlope: -2.9995077
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: -0.0066370564
+        outSlope: -0.0066370564
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxGravityDistance: 30
