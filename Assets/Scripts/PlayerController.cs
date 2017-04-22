@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     GameObject realPlayer, ghostPlayer;
     CharacterStateController realPlayerSC, ghostPlayerSC;
 
-    [HideInInspector]
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
     public bool isXboxCtrl = true;
@@ -54,6 +53,9 @@ public class PlayerController : MonoBehaviour
         }
 
         string joystickName = Input.GetJoystickNames()[playerIndex];
+
+        realPlayer.layer = this.gameObject.layer;
+        ghostPlayer.layer = this.gameObject.layer;
         
         switch(joystickName)
         {
