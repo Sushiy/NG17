@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public Material ghostMat;
 
     public GameObject realPlayer, ghostPlayer;
-    public CharacterStateController realPlayerSC, ghostPlayerSC;
+    public CharacterStateController humanPlayerSC, ghostPlayerSC;
 
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
@@ -50,9 +50,9 @@ public class PlayerController : MonoBehaviour
     {
         realPlayer = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(realPlayerPrefab, transform.position, transform.rotation, transform);
-        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        humanPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        realPlayerSC.Init(this, CharacterTypes.human);
+        humanPlayerSC.Init(this, CharacterTypes.human);
         ghostPlayerSC.Init(this, CharacterTypes.ghost);
 
         if(Input.GetJoystickNames().Length <= playerIndex)
@@ -156,9 +156,9 @@ public class PlayerController : MonoBehaviour
         }
         realPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(realPlayerPrefab, spawn, transform.rotation, transform);
-        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
+        humanPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
+        humanPlayerSC.Init(this, PlayerController.CharacterTypes.human);
         ghostPlayerSC.Init(this, PlayerController.CharacterTypes.ghost);
 
         realPlayer.layer = this.gameObject.layer;
