@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Human
+  - Ghost
   layers:
   - Default
   - TransparentFX
@@ -13,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - Ghost
-  - Player
-  - 
-  - 
+  - Player0
+  - Player1
+  - Player2
+  - Player3
   - 
   - 
   - 
