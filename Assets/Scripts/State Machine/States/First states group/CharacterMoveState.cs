@@ -51,6 +51,10 @@ public class CharacterMoveState : CharacterStateBase
         Vector3 dir = (lookPositon).normalized;
         charPhysics.accumulateLookTarget(dir);
         charPhysics.accumulateTargetDirMove(dir);
+
+        //if (speed > playerParentControl.charSettings.maxspeed)
+         //   speed = playerParentControl.charSettings.maxspeed;
+
         charPhysics.accumulateSpeedMove(speed * Time.deltaTime);
 
         
