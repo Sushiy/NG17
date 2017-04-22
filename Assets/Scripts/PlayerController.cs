@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject realPlayerPrefab, ghostPlayerPrefab;
 
-    GameObject realPlayer, ghostPlayer;
+    public GameObject realPlayer, ghostPlayer;
     CharacterStateController realPlayerSC, ghostPlayerSC;
 
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         public float moveSpeed;
         public float attackSphereCastRadius;
         public float attackLength;
+        public float stunTime;
     }
     [SerializeField]
     CharacterSettings _charSettings;
