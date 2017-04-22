@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
-    private bool isXbox360Ctrl = true;
+    public bool isXbox360Ctrl = true;
 
     // Use this for initialization
     void Awake ()
@@ -25,10 +25,15 @@ public class PlayerController : MonoBehaviour
             case "Controller (XBOX 360 For Windows)":
                 isXbox360Ctrl = true;
                 break;
+            case "Controller (Xbox One For Windows)":
+                isXbox360Ctrl = true;
+                break;
             default:
                 isXbox360Ctrl = false;
                 break;
         }
+
+        Debug.Log(joystickName);
 
 	}
 	
@@ -36,8 +41,8 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         //X and Y axis are always the first 2
-        leftStickX = Input.GetAxis("XAxis_" + playerIndex);
-        leftStickY = Input.GetAxis("YAxis_" + playerIndex);
+        leftStickX = Input.GetAxis("Axis1_" + playerIndex);
+        leftStickY = Input.GetAxis("Axis2_" + playerIndex);
 
         if(isXbox360Ctrl)
         {
