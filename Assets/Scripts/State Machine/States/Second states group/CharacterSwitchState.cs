@@ -25,7 +25,7 @@ public class CharacterSwitchState : CharacterStateBase
         }
         else if (charType == PlayerController.CharacterTypes.ghost)
         {
-            otherCharPhysics = playerParentControl.humanPlayerSC.charPhysics;
+            otherCharPhysics = playerParentControl.realPlayerSC.charPhysics;
 
         }
 
