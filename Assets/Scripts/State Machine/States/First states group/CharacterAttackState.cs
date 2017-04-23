@@ -64,7 +64,7 @@ public class CharacterAttackState : CharacterStateBase
                         CharacterStateController charStateOpponent = hit.collider.gameObject.GetComponent<CharacterStateController>();
                         charStateOpponent.changeState_SM0(charStateOpponent.characterDeathState);
                         playerParentControl.score++;
-                        TextMeshProUGUI scorevar = GameObject.Find("ScoreBoard" + playerParentControl.playerIndex).GetComponent<TextMeshProUGUI>();
+                        TextMeshProUGUI scorevar = GameObject.Find("Scoreboard" + playerParentControl.playerIndex).GetComponent<TextMeshProUGUI>();
                         scorevar.text = "Player " + (playerParentControl.playerIndex + 1) + ": " + playerParentControl.score;
                         break;
                     }
