@@ -59,7 +59,6 @@ public class CharacterPhysics : MonoBehaviour {
         else if (velocity.z < -maxVelocity)
             velocity.z = -maxVelocity;
 
-        Debug.Log(velocity);
 
         //Vector3 velocity = targetDir * step + targetDirMove * stepMove;
 
