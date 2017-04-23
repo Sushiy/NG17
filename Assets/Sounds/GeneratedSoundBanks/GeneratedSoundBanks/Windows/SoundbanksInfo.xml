@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
+	<RootPaths>
+		<ProjectRoot>/Users/janflessel/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/c:/users/crossover/My Documents/WwiseProjects/DanceProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/janflessel/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/c:/users/crossover/My Documents/WwiseProjects/DanceProject/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/janflessel/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/c:/users/crossover/My Documents/WwiseProjects/DanceProject/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/janflessel/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/c:/users/crossover/My Documents/WwiseProjects/DanceProject/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="4072029455" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\New_SoundBank</ObjectPath>
+			<ShortName>New_SoundBank</ShortName>
+			<Path>New_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1290008369" Name="Level_1" ObjectPath="\Events\Default Work Unit\Level_1"/>
+				<Event Id="1290008370" Name="Level_2" ObjectPath="\Events\Default Work Unit\Level_2"/>
+				<Event Id="1290008371" Name="Level_3" ObjectPath="\Events\Default Work Unit\Level_3"/>
+				<Event Id="124361234" Name="Stunned" ObjectPath="\Events\Default Work Unit\Stunned"/>
+				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Thunder"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="38444990" Language="SFX">
+					<ShortName>StingerUpbeat2.wav</ShortName>
+					<Path>SFX/StingerUpbeat2_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="68142422" Language="SFX">
+					<ShortName>March.wav</ShortName>
+					<Path>SFX/March_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="82929075" Language="SFX">
+					<ShortName>StringQuartet.wav</ShortName>
+					<Path>SFX/StringQuartet_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="128895394" Language="SFX">
+					<ShortName>ViolinMarc.wav</ShortName>
+					<Path>SFX/ViolinMarc_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="412333794" Language="SFX">
+					<ShortName>triangle.wav</ShortName>
+					<Path>SFX/triangle_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="428170436" Language="SFX">
+					<ShortName>ViolinMarcVariationFinal.wav</ShortName>
+					<Path>SFX/ViolinMarcVariationFinal_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="437760174" Language="SFX">
+					<ShortName>StingerTuba.wav</ShortName>
+					<Path>SFX/StingerTuba_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="494381030" Language="SFX">
+					<ShortName>Stun.wav</ShortName>
+					<Path>SFX/Stun_9E69E797.wem</Path>
+				</File>
+				<File Id="585206778" Language="SFX">
+					<ShortName>StringPizz.wav</ShortName>
+					<Path>SFX/StringPizz_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="870512284" Language="SFX">
+					<ShortName>StringQuartet2.wav</ShortName>
+					<Path>SFX/StringQuartet2_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="969302257" Language="SFX">
+					<ShortName>Stun2.wav</ShortName>
+					<Path>SFX/Stun2_9E69E797.wem</Path>
+				</File>
+				<File Id="996590402" Language="SFX">
+					<ShortName>thunder.wav</ShortName>
+					<Path>SFX/thunder_9E69E797.wem</Path>
+				</File>
+				<File Id="1073624190" Language="SFX">
+					<ShortName>LouderTheme.wav</ShortName>
+					<Path>SFX/LouderTheme_4B8CC0C5.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

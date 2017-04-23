@@ -44,10 +44,11 @@ public class CharacterSwitchState : CharacterStateBase
         {
             return;
         }
-        base.onEnterState();
+        base.OnUpdateState();
+        //base.onEnterState();
 
-        
-        
+
+
 
         GravityPull();
 

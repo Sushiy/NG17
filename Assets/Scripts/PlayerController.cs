@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
     CharacterSettings _charSettings;
     public CharacterSettings charSettings { get { return _charSettings; } }
 
+    PlayerAudioManager _playerAudio;
+    public PlayerAudioManager playerAudio { get { return _playerAudio; } }
+    
+
     // Use this for initialization
     void Awake ()
     {
@@ -84,7 +88,8 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(joystickName);
 
-	}
+        _playerAudio = GetComponent<PlayerAudioManager>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
