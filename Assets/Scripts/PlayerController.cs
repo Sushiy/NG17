@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
+{ 
     public int playerIndex = 0;
 
     public GameObject characterPrefab;
@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     public CharacterStateController realPlayerSC { get { return _realPlayerSC; } }
     public CharacterStateController ghostPlayerSC { get { return _ghostPlayerSC; } }
 
-  
-
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
     public bool isXboxCtrl = true;
 
+    public int score = 0;
+
     public enum CharacterTypes { human = 0, ghost = 1}
+
+    public GameObject SpawnpointParent;
 
     public struct InputSet
     {
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         public float attackSphereCastRadius;
         public float attackLength;
         public float stunTime;
+        public float respawnDelay;
 
         //public float maxspeed;
         public float moveSpeed;
@@ -59,14 +62,12 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-
         realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
         _realPlayerSC.Init(this, CharacterTypes.human);
         _ghostPlayerSC.Init(this, CharacterTypes.ghost);
-        //realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
 
 
         if (Input.GetJoystickNames().Length <= playerIndex)
@@ -125,14 +126,6 @@ public class PlayerController : MonoBehaviour
         }
 
         _charInputs[(int)CharacterTypes.ghost].moveAxis = new Vector3(leftStickX, leftStickY);
-        //if (!_charInputs[(int)CharacterTypes.ghost].attackOld && Mathf.Abs(triggerAxis) > 0.3f)
-        //{
-        //    
-        //    _charInputs[(int)CharacterTypes.ghost].attack = true;
-        //}
-        //else _charInputs[(int)CharacterTypes.ghost].attack = false;
-
-        //_charInputs[(int)CharacterTypes.ghost].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.ghost].switchValue = 0; 
 
         _charInputs[(int)CharacterTypes.human].moveAxis = new Vector3(rightStickX, rightStickY);
@@ -157,26 +150,28 @@ public class PlayerController : MonoBehaviour
 
     public void respawn()
     {
+
+        Vector3 oldPosition = realPlayer.transform.position;
         Destroy(realPlayer);
         Destroy(ghostPlayer);
-        int x = Random.Range(1, 5);
-        Vector3 spawn;
-        switch (x)
+
+
+        Transform[] spawns = SpawnpointParent.GetComponentsInChildren<Transform>();
+        int index = Random.Range(0, spawns.Length);
+        while (Vector3.Distance(spawns[index].position, oldPosition) <= 4)
         {
-            case 1: spawn = new Vector3(14f, 0, -9.9f);
-                break;
-            case 2: spawn = new Vector3(1.5f, 0, 9.14f);
-                break;
-            case 3: spawn = new Vector3(-14.27f, 0, 10.18f);
-                break;
-            case 4: spawn = new Vector3(-14.27f, 0, -9.94f);
-                break;
-            default: spawn = new Vector3(0,0,0);
-                break;
+            index = Random.Range(0, spawns.Length);
         }
 
-        realPlayer = GameObject.Instantiate(characterPrefab, spawn, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(characterPrefab, spawn, transform.rotation, transform);
+        StartCoroutine(DelayedSpawn(spawns[index].position));
+    }
+
+    IEnumerator DelayedSpawn (Vector3 spawnPosition)
+    {
+        yield return new WaitForSeconds(charSettings.respawnDelay);
+
+        realPlayer = GameObject.Instantiate(characterPrefab, spawnPosition, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(characterPrefab, spawnPosition, transform.rotation, transform);
         _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
         _realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
