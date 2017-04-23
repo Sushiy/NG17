@@ -12,7 +12,6 @@ public class CharacterPhysics : MonoBehaviour {
 
     //[SerializeField]
     //float gravityScale = 0.5f;
-
     Vector3 targetDir;
     Vector3 targetDirMove;
     //Vector3 lookTarget;
@@ -30,16 +29,16 @@ public class CharacterPhysics : MonoBehaviour {
         //Debug.Log("targetPos.x + targetPos.y + targetPos.z: "+(targetPos.x + targetPos.y + targetPos.z) + "; step: "+ step);
 
         //if (targetDir.x + targetDir.y + targetDir.z > 0.01f && step > 0.01f)
-        
+
         //Debug.Log("transform.position: "+transform.position + " targetPos: " + targetDir + "; step: " + step + " targetPosMove: " + targetDirMove + "; stepMove: " + stepMove);
-        
+
         //Vector3 posGravity = Vector3.MoveTowards(transform.position, transform.position + targetDir, step);
 
         //Vector3 posMove = Vector3.MoveTowards(posGravity, posGravity + targetDirMove, stepMove);
 
-            //transform.position = posMove;// (posMove + posGravity)/ 2;
+        //transform.position = posMove;// (posMove + posGravity)/ 2;
         //rigidbody.velocity = targetDir * gravityScale + targetDirMove;
-            // rigidbody.velocity *= friction*Time.deltaTime;
+        // rigidbody.velocity *= friction*Time.deltaTime;
 
         Vector3 frictionVelocity = Vector3.one * ( friction * Time.deltaTime);
         Vector3 velocity = rigidbody.velocity + targetDir * step + targetDirMove * stepMove;
