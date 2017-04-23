@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        respawn();
+        Respawn(false);
         if (Input.GetJoystickNames().Length <= playerIndex)
         {
             gameObject.SetActive(false);
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void respawn()
+    public void Respawn(bool delay)
     {
         Transform[] spawns = SpawnpointParent.GetComponentsInChildren<Transform>();
         int index = Random.Range(0, spawns.Length);
@@ -158,11 +158,12 @@ public class PlayerController : MonoBehaviour
             while (Vector3.Distance(spawns[index].position, oldPosition) < 4)
             {
                 index = Random.Range(0, spawns.Length);
-                Debug.Log(index + "/" + spawns.Length);
             }
         }
-
-        StartCoroutine(DelayedSpawn(spawns[index].position));
+        if (delay)
+            StartCoroutine(DelayedSpawn(spawns[index].position));
+        else
+            Spawn(spawns[index].position);
     }
 
     IEnumerator DelayedSpawn (Vector3 spawnPosition)

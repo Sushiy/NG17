@@ -9,16 +9,16 @@ public class CharacterDeathState : CharacterStateBase
     {
         base.onEnterState();
 
-        playerParentControl.playerAudio.PlayDeathStinger();
+        if(charType == 0)
+            playerParentControl.playerAudio.PlayDeathStinger();
         
     }
 
     public override void OnUpdateState()
     {
         base.OnUpdateState();
-        //base.onEnterState();
 
-        playerParentControl.respawn();
+        playerParentControl.Respawn(true);
         
 
         

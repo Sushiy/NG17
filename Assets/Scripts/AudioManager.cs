@@ -22,16 +22,10 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager> {
     bool isMenuStarted = false;
 
     // Use this for initialization
-    void Start () {
-    
-        /*
-        musicAudioSource.clip = mainMusicLoops[0];
-        musicAudioSource.Play();
-        musicAudioSource.loop = false;
-        currentMusicClipIndex = 0;
-        */
-
-
+    void Awake ()
+    {
+        PlayMenuMusic();
+        DontDestroyOnLoad(this.gameObject);
     }
 
 

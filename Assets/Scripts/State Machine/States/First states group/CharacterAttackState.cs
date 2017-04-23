@@ -57,7 +57,6 @@ public class CharacterAttackState : CharacterStateBase
             {
                 if(hit.collider.gameObject.layer != playerParentControl.gameObject.layer)
                 {
-                    Debug.Log("we hit " + hit.collider.gameObject.layer.ToString() + hit.collider.gameObject.tag);
                     if (hit.collider.gameObject.tag == "Human")
                     {
                         //you send your opponent to the death state

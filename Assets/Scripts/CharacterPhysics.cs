@@ -107,7 +107,10 @@ public class CharacterPhysics : MonoBehaviour {
 
     public void LookWhereYoureGoing()
     {
-        transform.LookAt(transform.position + rigidbody.velocity * 100);
+        if (rigidbody.velocity.sqrMagnitude <= 0.1f)
+            return;
+        else
+            transform.LookAt(transform.position + rigidbody.velocity * 100);
     }
 
 

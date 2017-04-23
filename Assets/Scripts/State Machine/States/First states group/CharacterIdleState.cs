@@ -24,7 +24,6 @@ public class CharacterIdleState : CharacterStateBase {
 
         if (playerParentControl.charInputs[(int)charType].moveAxis.sqrMagnitude > 0.01f)
         {
-            Debug.Log("go to move");
             onEndState(charStateController.characterMoveState);
         }
     }
