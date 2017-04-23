@@ -133,7 +133,6 @@ public class PlayerController : MonoBehaviour
     {
         Transform[] spawns = SpawnpointParent.GetComponentsInChildren<Transform>();
         int index = Random.Range(0, spawns.Length);
-        Debug.Log(index + "/" + spawns.Length);
 
         if (realPlayer != null)
         {
