@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isXboxCtrl = true;
 
-    public static int score = 0;
+    public int score = 0;
 
     public enum CharacterTypes { human = 0, ghost = 1}
 
