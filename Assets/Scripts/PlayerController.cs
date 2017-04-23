@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isXboxCtrl = true;
 
-    public int score = 0;
+    public static int score = 0;
 
     public enum CharacterTypes { human = 0, ghost = 1}
 
@@ -140,6 +140,7 @@ public class PlayerController : MonoBehaviour
             //The first player with a score of 5 wins
             TextMeshProUGUI wintext = GameObject.Find("wintext").GetComponent<TextMeshProUGUI>();
             wintext.text = "Player " + (playerIndex + 1) + " Wins";
+            AudioManager.Instance.PlayMenuMusic();
         }
     }
 
