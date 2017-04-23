@@ -8,17 +8,19 @@ public class CharacterMoveState : CharacterStateBase
     protected override void onEnterState()
     {
         base.onEnterState();
+        charStateController.anim.SetBool("bWalking", true);
 
     }
 
     public override void OnUpdateState()
     {
-        base.onEnterState();
+        base.OnUpdateState();
 
         Vector2 moveAxis = playerParentControl.charInputs[(int)charType].moveAxis;
         float charSpeed = playerParentControl.charSettings.moveSpeed;
 
         move(moveAxis, charSpeed);
+
 
 
         bool attacking = playerParentControl.charInputs[(int)charType].attack;
@@ -27,10 +29,7 @@ public class CharacterMoveState : CharacterStateBase
             onEndState(charStateController.characterAttackState);
         }
 
-        if (
-            Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.x) == 0.0f ||
-            Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.y) == 0.0f
-            )
+        if (playerParentControl.charInputs[(int)charType].moveAxis.sqrMagnitude <= 0.01f)
         {
             onEndState(charStateController.characterIdleState);
         }
@@ -40,20 +39,14 @@ public class CharacterMoveState : CharacterStateBase
 
     void move(Vector2 moveAxis, float speed)
     {
-        float xMove = moveAxis.x * speed;// * Time.deltaTime;
-        float zMove = -moveAxis.y * speed;// * Time.deltaTime;
-
-        //charPhysics.transform.Translate, Space.World);
-        //Vector3 target = charPhysics.transform.position + new Vector3(xMove, 0, zMove);
-        //charPhysics.transform.position = Vector3.MoveTowards(charPhysics.transform.position, target, speed);
-        Vector3 lookPositon = new Vector3(xMove, 0, zMove);// transform.position + new Vector3(xMove, 0, zMove) * 10.0f;
+        float xMove = moveAxis.x * speed;
+        float zMove = -moveAxis.y * speed;
+        Vector3 lookPositon = new Vector3(xMove, 0, zMove);
 
         Vector3 dir = (lookPositon).normalized;
         charPhysics.accumulateLookTarget(dir);
         charPhysics.accumulateTargetDirMove(dir);
-
-        //if (speed > playerParentControl.charSettings.maxspeed)
-         //   speed = playerParentControl.charSettings.maxspeed;
+        charPhysics.LookWhereYoureGoing();
 
         charPhysics.accumulateSpeedMove(speed * Time.deltaTime);
 
@@ -63,6 +56,7 @@ public class CharacterMoveState : CharacterStateBase
     protected override void onEndState(CharacterStateBase nextState)
     {
         charStateController.changeState_SM0(nextState);
+        charStateController.anim.SetBool("bWalking", false);
 
         base.onEndState(nextState);
     }

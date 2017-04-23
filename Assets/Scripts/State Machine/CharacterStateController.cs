@@ -31,9 +31,9 @@ public class CharacterStateController : MonoBehaviour {
     [SerializeField]
     CharacterLightningState _characterLightningState;
     public CharacterLightningState characterLightningState { get { return _characterLightningState; } }
+    
 
-    [SerializeField]
-    CharacterStateBase currentState_SM0;
+    public CharacterStateBase currentState_SM0;
     [SerializeField]
     CharacterStateBase currentState_SM1;
     [SerializeField]
@@ -43,10 +43,15 @@ public class CharacterStateController : MonoBehaviour {
     PlayerController.CharacterTypes charType;
     CharacterPhysics _charPhysics;
     public CharacterPhysics charPhysics { get { return _charPhysics; } }
+    [HideInInspector]
+    public Animator anim;
+    public GameObject knife;
 
     public void Init(PlayerController playerParentControl, PlayerController.CharacterTypes type)
     {
         //this.playerParentControl = playerParentControl;
+
+        anim = GetComponentInChildren<Animator>();
         this.charType = type;
 
         currentState_SM0 = _characterIdleState;

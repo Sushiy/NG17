@@ -9,12 +9,9 @@ public class CharacterPhysics : MonoBehaviour {
 
     [SerializeField]
     float maxVelocity = 50f;
-
-    //[SerializeField]
-    //float gravityScale = 0.5f;
+    
     Vector3 targetDir;
     Vector3 targetDirMove;
-    //Vector3 lookTarget;
     float step;
     float stepMove;
     new Rigidbody rigidbody;
@@ -26,42 +23,10 @@ public class CharacterPhysics : MonoBehaviour {
 	
     void Update()
     {
-        //Debug.Log("targetPos.x + targetPos.y + targetPos.z: "+(targetPos.x + targetPos.y + targetPos.z) + "; step: "+ step);
-
-        //if (targetDir.x + targetDir.y + targetDir.z > 0.01f && step > 0.01f)
-
-        //Debug.Log("transform.position: "+transform.position + " targetPos: " + targetDir + "; step: " + step + " targetPosMove: " + targetDirMove + "; stepMove: " + stepMove);
-
-        //Vector3 posGravity = Vector3.MoveTowards(transform.position, transform.position + targetDir, step);
-
-        //Vector3 posMove = Vector3.MoveTowards(posGravity, posGravity + targetDirMove, stepMove);
-
-        //transform.position = posMove;// (posMove + posGravity)/ 2;
-        //rigidbody.velocity = targetDir * gravityScale + targetDirMove;
-        // rigidbody.velocity *= friction*Time.deltaTime;
-
         Vector3 frictionVelocity = Vector3.one * ( friction * Time.deltaTime);
         Vector3 velocity = rigidbody.velocity + targetDir * step + targetDirMove * stepMove;
 
-        if (velocity.x > maxVelocity)
-            velocity.x = maxVelocity;
-        else if (velocity.x < -maxVelocity)
-            velocity.x = -maxVelocity;
-
-        if (velocity.y > maxVelocity)
-            velocity.y = maxVelocity;
-        else if (velocity.y < -maxVelocity)
-            velocity.y = -maxVelocity;
-
-        if (velocity.z > maxVelocity)
-            velocity.z = maxVelocity;
-        else if (velocity.z < -maxVelocity)
-            velocity.z = -maxVelocity;
-
-
-        //Vector3 velocity = targetDir * step + targetDirMove * stepMove;
-
-        transform.LookAt(transform.position + targetDirMove * 100);
+        velocity = Vector3.ClampMagnitude(velocity, maxVelocity);
 
         if (velocity.x > frictionVelocity.x)
         {
@@ -133,17 +98,16 @@ public class CharacterPhysics : MonoBehaviour {
 
         rigidbody.velocity = velocity;
 
-        /*
-        if (lookTarget.magnitude > 0.00f)
-            transform.LookAt(targetDirMove * 100);
-        
-        */
-
         targetDir = Vector3.zero;
         targetDirMove = Vector3.zero;
         //lookTarget = Vector3.zero;
         step = 0;
         stepMove = 0;
+    }
+
+    public void LookWhereYoureGoing()
+    {
+        transform.LookAt(transform.position + rigidbody.velocity * 100);
     }
 
 

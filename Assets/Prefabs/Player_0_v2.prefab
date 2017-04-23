@@ -62,26 +62,33 @@ MonoBehaviour:
   rightStickY: 0
   triggerAxis: 0
   isXboxCtrl: 1
+  SpawnpointParent: {fileID: 0}
   _charSettings:
-    attackSphereCastRadius: 0.5
-    attackLength: 1
+    attackSphereCastRadius: 0.75
+    attackLength: 2
     stunTime: 0
-    moveSpeed: 30
-    gravityPower: 15
+    moveSpeed: 10
+    gravityPower: 4
     gravityCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1.1094949
-        inSlope: -2.9915912
-        outSlope: -2.9915912
+        value: 1.0956247
+        inSlope: -5.4633064
+        outSlope: -5.4633064
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.29886538
+        value: -0.006406799
+        inSlope: -0.077457935
+        outSlope: -0.077457935
         tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: 0
-        inSlope: -0.0066370564
-        outSlope: -0.0066370564
+        value: -0.013870239
+        inSlope: -0.05803482
+        outSlope: -0.05803482
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
