@@ -10,13 +10,12 @@ public class CharacterAttackState : CharacterStateBase
     {
         base.onEnterState();
 
-
         nextQueuedState = charStateController.characterIdleState;
     }
 
     public override void OnUpdateState()
     {
-        base.onEnterState();
+        base.OnUpdateState();
         
         if(charType == 0)
         {

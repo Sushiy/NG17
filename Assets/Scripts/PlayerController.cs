@@ -75,7 +75,9 @@ public class PlayerController : MonoBehaviour
 
         realPlayer.layer = this.gameObject.layer;
         realPlayer.tag = "Human";
+        realPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
         ghostPlayer.tag = "Ghost";
+        ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
         ghostPlayer.layer = this.gameObject.layer;
         
         switch(joystickName)
