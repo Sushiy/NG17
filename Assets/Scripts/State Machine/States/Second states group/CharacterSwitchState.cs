@@ -63,13 +63,17 @@ public class CharacterSwitchState : CharacterStateBase
         if (distance < 0.05f)
             return;
         float gravityCurve = playerParentControl.charSettings.gravityCurve.Evaluate(distance / playerParentControl.charSettings.maxGravityDistance);
-        float step =  gravityCurve * gravityCurve * gravitySpeed * Time.deltaTime;
+        float step =  gravityCurve * gravityCurve * gravitySpeed;
 
         //charPhysics.transform.position = Vector3.MoveTowards(charPhysics.transform.position, otherCharPhysics.transform.position, step);
         Vector3 dir = (otherCharPhysics.transform.position - charPhysics.transform.position).normalized;
         charPhysics.accumulateLookTarget(dir);
         charPhysics.accumulateTargetDir(dir);
-        charPhysics.accumulateSpeed(step);
+
+        //if (step > playerParentControl.charSettings.maxspeed)
+        //    step = playerParentControl.charSettings.maxspeed;
+
+        charPhysics.accumulateSpeed(step * Time.deltaTime);
     }
 
     protected override void onEndState(CharacterStateBase nextState)

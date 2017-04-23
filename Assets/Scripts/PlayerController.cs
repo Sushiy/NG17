@@ -37,10 +37,13 @@ public class PlayerController : MonoBehaviour
     [System.Serializable]
     public struct CharacterSettings
     {
-        public float moveSpeed;
+        
         public float attackSphereCastRadius;
         public float attackLength;
         public float stunTime;
+
+        //public float maxspeed;
+        public float moveSpeed;
         public float gravityPower;
         public AnimationCurve gravityCurve;
         public float maxGravityDistance;
@@ -52,14 +55,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        /*
-        realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
-        realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
-        ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        realPlayerSC.Init(this, CharacterTypes.human);
-        ghostPlayerSC.Init(this, CharacterTypes.ghost);
-        */
+
         realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
@@ -122,17 +118,20 @@ public class PlayerController : MonoBehaviour
         }
 
         _charInputs[(int)CharacterTypes.ghost].moveAxis = new Vector3(leftStickX, leftStickY);
-        if (!_charInputs[(int)CharacterTypes.ghost].attackOld && Mathf.Abs(triggerAxis) > 0.9f)
-        {
-            _charInputs[(int)CharacterTypes.ghost].attack = true;
-        }
-        else _charInputs[(int)CharacterTypes.ghost].attack = false;
-        _charInputs[(int)CharacterTypes.ghost].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
+        //if (!_charInputs[(int)CharacterTypes.ghost].attackOld && Mathf.Abs(triggerAxis) > 0.3f)
+        //{
+        //    
+        //    _charInputs[(int)CharacterTypes.ghost].attack = true;
+        //}
+        //else _charInputs[(int)CharacterTypes.ghost].attack = false;
+
+        //_charInputs[(int)CharacterTypes.ghost].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.ghost].switchValue = 0; 
 
         _charInputs[(int)CharacterTypes.human].moveAxis = new Vector3(rightStickX, rightStickY);
-        if (!_charInputs[(int)CharacterTypes.human].attackOld && Mathf.Abs(triggerAxis) > 0.9f)
+        if (!_charInputs[(int)CharacterTypes.human].attackOld && Mathf.Abs(triggerAxis) > 0.3f)
         {
+            
             _charInputs[(int)CharacterTypes.human].attack = true;
         }
         else _charInputs[(int)CharacterTypes.human].attack = false;
@@ -179,5 +178,7 @@ public class PlayerController : MonoBehaviour
 
         realPlayer.layer = this.gameObject.layer;
         ghostPlayer.layer = this.gameObject.layer;
+
+        realPlayer.tag = "Human";
     }
 }

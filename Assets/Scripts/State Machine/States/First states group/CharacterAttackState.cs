@@ -17,7 +17,7 @@ public class CharacterAttackState : CharacterStateBase
     public override void OnUpdateState()
     {
         base.onEnterState();
-
+        
         if(charType == 0)
         {
             attack();
@@ -36,6 +36,7 @@ public class CharacterAttackState : CharacterStateBase
 
     public void attack()
     {
+        Debug.Log("attack");
         RaycastHit hit;
         Vector3 position = transform.position;
         Vector3 direction = transform.forward;
@@ -46,16 +47,18 @@ public class CharacterAttackState : CharacterStateBase
             if (layer >= 8 && layer <= 11 && (layer != (8 + playerParentControl.playerIndex)))
             {
                 Debug.Log("we hit " + hit.collider.gameObject.layer.ToString());
-                if(hit.collider.gameObject.tag == "Ghost")
-                {
-                    //you get sent to the damaged also called the stunned stage
-                    onEndState(charStateController.characterDamagedState);
-                }
-                else
+                if(hit.collider.gameObject.tag == "Human")
                 {
                     //you send your opponent to the death state
                     CharacterStateController charStateOpponent = hit.collider.gameObject.GetComponent<CharacterStateController>();
                     charStateOpponent.changeState_SM0(charStateOpponent.characterDeathState);
+                    
+                }
+                else
+                {
+                    //you get sent to the damaged also called the stunned state
+                    Debug.Log("Stun");
+                    onEndState(charStateController.characterDamagedState);
 
                 }
             }

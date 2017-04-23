@@ -5,7 +5,10 @@ using UnityEngine;
 public class CharacterPhysics : MonoBehaviour {
 
     [SerializeField]
-    float friction = 50f;
+    float friction = 3f;
+
+    [SerializeField]
+    float maxVelocity = 50f;
 
     //[SerializeField]
     //float gravityScale = 0.5f;
@@ -38,31 +41,96 @@ public class CharacterPhysics : MonoBehaviour {
         //rigidbody.velocity = targetDir * gravityScale + targetDirMove;
             // rigidbody.velocity *= friction*Time.deltaTime;
 
-        Vector3 vel = Vector3.one * ( friction * Time.deltaTime);
+        Vector3 frictionVelocity = Vector3.one * ( friction * Time.deltaTime);
         Vector3 velocity = rigidbody.velocity + targetDir * step + targetDirMove * stepMove;
+
+        if (velocity.x > maxVelocity)
+            velocity.x = maxVelocity;
+        else if (velocity.x < -maxVelocity)
+            velocity.x = -maxVelocity;
+
+        if (velocity.y > maxVelocity)
+            velocity.y = maxVelocity;
+        else if (velocity.y < -maxVelocity)
+            velocity.y = -maxVelocity;
+
+        if (velocity.z > maxVelocity)
+            velocity.z = maxVelocity;
+        else if (velocity.z < -maxVelocity)
+            velocity.z = -maxVelocity;
+
+
+        //Vector3 velocity = targetDir * step + targetDirMove * stepMove;
 
         transform.LookAt(transform.position + targetDirMove * 100);
 
-        if (velocity.x > vel.x)
-            velocity.x -= vel.x;
-        else if (velocity.x < vel.x)
-            velocity.x += vel.x;
+        if (velocity.x > frictionVelocity.x)
+        {
+            float temp = velocity.x;
+            temp -= frictionVelocity.x;
+            if (temp * velocity.x < 0)
+                velocity.x = 0;
+            else
+                velocity.x = temp;
+        } 
+        else if (velocity.x < frictionVelocity.x)
+        {
+            float temp = velocity.x;
+            temp += frictionVelocity.x;
+            if (temp * velocity.x < 0)
+                velocity.x = 0;
+            else
+                velocity.x = temp;
+        }
         else
             velocity.x = 0;
 
-        if (velocity.y > vel.y)
-            velocity.y -= vel.y;
-        else if (velocity.y < vel.y)
-            velocity.y += vel.y;
+
+
+
+        if (velocity.y > frictionVelocity.y)
+        {
+            float temp = velocity.y;
+            temp -= frictionVelocity.y;
+            if (temp * velocity.y < 0)
+                velocity.y = 0;
+            else
+                velocity.y = temp;
+        }
+        else if (velocity.y < frictionVelocity.y)
+        {
+            float temp = velocity.y;
+            temp += frictionVelocity.y;
+            if (temp * velocity.y < 0)
+                velocity.y = 0;
+            else
+                velocity.y = temp;
+        }
         else
             velocity.y = 0;
 
-        if (velocity.z > vel.z)
-            velocity.z -= vel.z;
-        else if (velocity.z < vel.z)
-            velocity.z += vel.z;
+
+        if (velocity.z > frictionVelocity.z)
+        {
+            float temp = velocity.z;
+            temp -= frictionVelocity.z;
+            if (temp * velocity.z < 0)
+                velocity.z = 0;
+            else
+                velocity.z = temp;
+        }
+        else if (velocity.z < frictionVelocity.z)
+        {
+            float temp = velocity.z;
+            temp += frictionVelocity.z;
+            if (temp * velocity.z < 0)
+                velocity.z = 0;
+            else
+                velocity.z = temp;
+        }
         else
             velocity.z = 0;
+
 
         rigidbody.velocity = velocity;
 
