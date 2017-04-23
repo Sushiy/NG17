@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 { 
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
     CharacterStateController _realPlayerSC, _ghostPlayerSC;
     public CharacterStateController realPlayerSC { get { return _realPlayerSC; } }
     public CharacterStateController ghostPlayerSC { get { return _ghostPlayerSC; } }
-
+    [HideInInspector]
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
     public bool isXboxCtrl = true;
@@ -42,8 +43,7 @@ public class PlayerController : MonoBehaviour
         public float attackLength;
         public float stunTime;
         public float respawnDelay;
-
-        //public float maxspeed;
+        
         public float moveSpeed;
         public float gravityPower;
         public AnimationCurve gravityCurve;
@@ -56,14 +56,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
-        _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
-        _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        _realPlayerSC.Init(this, CharacterTypes.human);
-        _ghostPlayerSC.Init(this, CharacterTypes.ghost);
-
-
+        respawn();
         if (Input.GetJoystickNames().Length <= playerIndex)
         {
             gameObject.SetActive(false);
@@ -72,14 +65,8 @@ public class PlayerController : MonoBehaviour
 
         string joystickName = Input.GetJoystickNames()[playerIndex];
 
-        realPlayer.layer = this.gameObject.layer;
-        realPlayer.tag = "Human";
-        realPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
-        ghostPlayer.tag = "Ghost";
-        ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
-        ghostPlayer.layer = this.gameObject.layer;
-        
-        switch(joystickName)
+
+        switch (joystickName)
         {
             case "Controller (XBOX 360 For Windows)":
                 isXboxCtrl = true;
@@ -131,6 +118,7 @@ public class PlayerController : MonoBehaviour
         _charInputs[(int)CharacterTypes.human].attackOld = Mathf.Abs(triggerAxis) < 0.3f ? false : true;
         _charInputs[(int)CharacterTypes.human].switchValue = 0;
 
+        if(ghostPlayer!= null)
         if (LightningManager.instance.isLightningStriking)
         {
             ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = ghostMat;
@@ -143,17 +131,21 @@ public class PlayerController : MonoBehaviour
 
     public void respawn()
     {
-
-        Vector3 oldPosition = realPlayer.transform.position;
-        Destroy(realPlayer);
-        Destroy(ghostPlayer);
-
-
         Transform[] spawns = SpawnpointParent.GetComponentsInChildren<Transform>();
         int index = Random.Range(0, spawns.Length);
-        while (Vector3.Distance(spawns[index].position, oldPosition) <= 4)
+        Debug.Log(index + "/" + spawns.Length);
+
+        if (realPlayer != null)
         {
-            index = Random.Range(0, spawns.Length);
+            Vector3 oldPosition = realPlayer.transform.position;
+            Destroy(realPlayer);
+            Destroy(ghostPlayer);
+
+            while (Vector3.Distance(spawns[index].position, oldPosition) < 4)
+            {
+                index = Random.Range(0, spawns.Length);
+                Debug.Log(index + "/" + spawns.Length);
+            }
         }
 
         StartCoroutine(DelayedSpawn(spawns[index].position));
@@ -163,17 +155,43 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(charSettings.respawnDelay);
 
-        realPlayer = GameObject.Instantiate(characterPrefab, spawnPosition, transform.rotation, transform);
-        ghostPlayer = GameObject.Instantiate(characterPrefab, spawnPosition, transform.rotation, transform);
+        Spawn(spawnPosition);
+    }
+
+    void Spawn(Vector3 position)
+    {
+        realPlayer = GameObject.Instantiate(characterPrefab, position, transform.rotation, transform);
+        ghostPlayer = GameObject.Instantiate(characterPrefab, position, transform.rotation, transform);
         _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
-        _realPlayerSC.Init(this, PlayerController.CharacterTypes.human);
-        _ghostPlayerSC.Init(this, PlayerController.CharacterTypes.ghost);
-
+        _realPlayerSC.Init(this, CharacterTypes.human);
+        _ghostPlayerSC.Init(this, CharacterTypes.ghost);
 
         realPlayer.layer = this.gameObject.layer;
+        realPlayer.tag = "Human";
+        realPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
+        ghostPlayer.tag = "Ghost";
+        ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
         ghostPlayer.layer = this.gameObject.layer;
 
-        realPlayer.tag = "Human";
+        switch(playerIndex)
+        {
+            case 0:
+                realPlayer.GetComponentInChildren<Image>().color = new Color(0, 0.7f, 0.16f);
+                ghostPlayer.GetComponentInChildren<Image>().color = new Color(0, 0.7f, 0.16f);
+                break;
+            case 1:
+                realPlayer.GetComponentInChildren<Image>().color = new Color(0.3f, 0.26f, 1.0f);
+                ghostPlayer.GetComponentInChildren<Image>().color = new Color(0.3f, 0.26f, 1.0f);
+                break;
+            case 2:
+                realPlayer.GetComponentInChildren<Image>().color = new Color(0.65f, 0.1f, 0.1f);
+                ghostPlayer.GetComponentInChildren<Image>().color = new Color(0.65f, 0.1f, 0.1f);
+                break;
+            case 3:
+                realPlayer.GetComponentInChildren<Image>().color = new Color(0.8f, 0.7f, 0.05f);
+                ghostPlayer.GetComponentInChildren<Image>().color = new Color(0.8f, 0.7f, 0.05f);
+                break;
+        } 
     }
 }
