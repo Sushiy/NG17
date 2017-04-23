@@ -15,7 +15,8 @@ public class CharacterDeathState : CharacterStateBase
 
     public override void OnUpdateState()
     {
-        base.onEnterState();
+        base.OnUpdateState();
+        //base.onEnterState();
 
         playerParentControl.respawn();
         

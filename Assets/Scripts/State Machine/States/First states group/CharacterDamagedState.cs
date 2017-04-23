@@ -16,7 +16,8 @@ public class CharacterDamagedState : CharacterStateBase
 
     public override void OnUpdateState()
     {
-        base.onEnterState();
+        base.OnUpdateState();
+        //base.onEnterState();
 
         playerParentControl.playerAudio.PlayStunStinger();
 

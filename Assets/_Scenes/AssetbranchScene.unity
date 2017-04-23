@@ -778,11 +778,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4115209141532816, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6.9031997
@@ -841,105 +836,9 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 4200bf2f8bb43f446af57fa224b9c29c, type: 2}
     - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
         type: 2}
-      propertyPath: ghostMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 51a280ca8f2d41f45b1b91fbade56d29, type: 2}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: characterPrefab
-      value: 
-      objectReference: {fileID: 1009234148244706, guid: 1156e88380665514db4bfb87a7d43e9e,
-        type: 2}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityPower
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.attackLength
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.attackSphereCastRadius
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[0].inSlope
-      value: -5.4633064
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[0].outSlope
-      value: -5.4633064
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[0].value
-      value: 1.0956247
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].value
-      value: -0.006406799
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].time
-      value: 0.29886538
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].inSlope
-      value: -0.077457935
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].outSlope
-      value: -0.077457935
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].value
-      value: -0.013870239
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].inSlope
-      value: -0.05803482
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].outSlope
-      value: -0.05803482
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
       propertyPath: SpawnpointParent
       value: 
       objectReference: {fileID: 2085503961}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.respawnDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.stunTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
   m_IsPrefabParent: 0
@@ -1087,11 +986,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4115209141532816, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6.9031997
@@ -1124,25 +1018,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
+        type: 2}
+      propertyPath: SpawnpointParent
+      value: 
+      objectReference: {fileID: 2085503961}
     - target: {fileID: 1659509371632486, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
       propertyPath: m_Name
       value: Player_3_v2
       objectReference: {fileID: 0}
-    - target: {fileID: 1659509371632486, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: playerIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: realPlayerPrefab
-      value: 
-      objectReference: {fileID: 1009234148244706, guid: 08cdaf73080b840469208d8f3775f8bb,
-        type: 2}
     - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
         type: 2}
       propertyPath: humanMat
@@ -1150,104 +1034,8 @@ Prefab:
       objectReference: {fileID: 2100000, guid: d49853de94b358d41b547d07daf31195, type: 2}
     - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
         type: 2}
-      propertyPath: ghostMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 51a280ca8f2d41f45b1b91fbade56d29, type: 2}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: characterPrefab
-      value: 
-      objectReference: {fileID: 1009234148244706, guid: 1156e88380665514db4bfb87a7d43e9e,
-        type: 2}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityPower
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.attackLength
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.attackSphereCastRadius
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[0].inSlope
-      value: -5.4633064
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[0].outSlope
-      value: -5.4633064
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[0].value
-      value: 1.0956247
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].value
-      value: -0.006406799
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].time
-      value: 0.29886538
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].inSlope
-      value: -0.077457935
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[1].outSlope
-      value: -0.077457935
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].value
-      value: -0.013870239
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].inSlope
-      value: -0.05803482
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.gravityCurve.m_Curve.Array.data[2].outSlope
-      value: -0.05803482
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: SpawnpointParent
-      value: 
-      objectReference: {fileID: 2085503961}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.respawnDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.stunTime
-      value: 2
+      propertyPath: playerIndex
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
@@ -2921,11 +2709,6 @@ Prefab:
       propertyPath: humanMat
       value: 
       objectReference: {fileID: 2100000, guid: edd86c9d6698d254f96f472a2290b24d, type: 2}
-    - target: {fileID: 114677175655336958, guid: 0fb8f1857956b2a4790f2e18faa4e66f,
-        type: 2}
-      propertyPath: _charSettings.stunTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb8f1857956b2a4790f2e18faa4e66f, type: 2}
   m_IsPrefabParent: 0

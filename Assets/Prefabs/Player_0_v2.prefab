@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114677175655336958}
   - component: {fileID: 114552897924306064}
   - component: {fileID: 82473737799503274}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Player_0_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,21 +172,15 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1.0956247
-        inSlope: -5.4633064
-        outSlope: -5.4633064
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.29886538
-        value: -0.006406799
-        inSlope: -0.077457935
-        outSlope: -0.077457935
+        value: 1
+        inSlope: -3.298891
+        outSlope: -3.298891
         tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: -0.013870239
-        inSlope: -0.05803482
-        outSlope: -0.05803482
+        value: 0
+        inSlope: -0.035639763
+        outSlope: -0.035639763
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
