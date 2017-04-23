@@ -12,6 +12,9 @@ public class CharacterDamagedState : CharacterStateBase
 
         counter = 0;
 
+        playerParentControl.playerAudio.PlayStunStinger();
+
+
     }
 
     public override void OnUpdateState()
@@ -19,9 +22,7 @@ public class CharacterDamagedState : CharacterStateBase
         base.OnUpdateState();
         //base.onEnterState();
 
-        playerParentControl.playerAudio.PlayStunStinger();
-
-
+      
         //Stunned for 2seconds
         counter += Time.deltaTime;
 

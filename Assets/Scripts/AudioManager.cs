@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager> {
     List<AudioClip> mainMusicLoops;
     int currentMusicClipIndex;
     //AudioClip currentMusicClip;
-
+    
 
     [SerializeField]
     AudioClip menuMusic;
@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager> {
 
     // Use this for initialization
     void Start () {
-
+    
         /*
         musicAudioSource.clip = mainMusicLoops[0];
         musicAudioSource.Play();
