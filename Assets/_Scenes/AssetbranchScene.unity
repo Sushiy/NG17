@@ -1165,6 +1165,115 @@ Transform:
   m_Father: {fileID: 1517860715}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &485012141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 485012143}
+  - component: {fileID: 485012142}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &485012142
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485012141}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c385dd68f15cbab48a614d071b2778aa, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &485012143
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485012141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519620810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,7 +2689,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.83
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2592,15 +2701,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.38268343
+      value: -0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2616,19 +2725,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 2ceb192e111ea614a9f036d781bb68d6, type: 2}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7907855b6402515489f91be0acf9756f, type: 3}
       propertyPath: m_Name
@@ -2817,6 +2926,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e14f827922ed46f498e3dad32710535e, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1312530744 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: e14f827922ed46f498e3dad32710535e, type: 3}
+  m_PrefabInternal: {fileID: 1312530743}
+--- !u!136 &1312530745
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312530744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.015074023
+  m_Height: 0.02324077
+  m_Direction: 1
+  m_Center: {x: 4.656613e-10, y: 0, z: 0.015332286}
 --- !u!1 &1322559738 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
@@ -3142,8 +3268,8 @@ MonoBehaviour:
   minLightningDelay: 5
   maxLightningDelay: 10
   strikingDelay: 1
-  windupLightning: {fileID: 8300000, guid: ce0bc17063bb7bf4e91d7fb8ff4e38df, type: 3}
-  instantLightning: {fileID: 8300000, guid: fbbbea3195042a24c99ab7e1688ee537, type: 3}
+  windupLightning: {fileID: 8300000, guid: 0865f1f240e6522458eb9c0379bb16b7, type: 3}
+  instantLightning: {fileID: 8300000, guid: 0865f1f240e6522458eb9c0379bb16b7, type: 3}
   isLightningStriking: 0
 --- !u!1 &1554693598
 GameObject:
@@ -3302,23 +3428,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.3
+      value: 10.15
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2629715
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5085201
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.37662208
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7282919
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_RootOrder
@@ -3338,7 +3464,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -69.848
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3346,7 +3472,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 783f1d03fd49a9449a5485baf00c45e2, type: 2}
     - target: {fileID: 400000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -54.690002
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff6ef6d64a60ccc4985cdd003cd88491, type: 3}
