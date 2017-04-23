@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 { 
@@ -128,6 +129,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             ghostPlayer.GetComponentInChildren<SkinnedMeshRenderer>().material = humanMat;
+        }
+        if (score > 4)
+        {
+            //The first player with a score of 5 wins
+            TextMeshProUGUI wintext = GameObject.Find("wintext").GetComponent<TextMeshProUGUI>();
+            wintext.text = "Player " + (playerIndex + 1) + " Wins";
         }
     }
 
