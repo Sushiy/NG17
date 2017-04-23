@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CharacterAttackState : CharacterStateBase
 {
-
+    CharacterStateBase nextQueuedState;
 
     protected override void onEnterState()
     {
         base.onEnterState();
 
 
-
+        nextQueuedState = charStateController.characterIdleState;
     }
 
     public override void OnUpdateState()
@@ -22,7 +22,8 @@ public class CharacterAttackState : CharacterStateBase
         {
             attack();
         }
-        onEndState(charStateController.characterIdleState);
+        
+        onEndState(nextQueuedState);
 
     }
 
@@ -57,9 +58,9 @@ public class CharacterAttackState : CharacterStateBase
                 else
                 {
                     //you get sent to the damaged also called the stunned state
-                    Debug.Log("Stun");
-                    onEndState(charStateController.characterDamagedState);
-
+                    //Debug.Log("Stun");
+                    //onEndState(charStateController.characterDamagedState);
+                    nextQueuedState = charStateController.characterDamagedState;
                 }
             }
         }
