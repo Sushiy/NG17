@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CharacterAttackState : CharacterStateBase
 {
@@ -62,6 +63,9 @@ public class CharacterAttackState : CharacterStateBase
                         //you send your opponent to the death state
                         CharacterStateController charStateOpponent = hit.collider.gameObject.GetComponent<CharacterStateController>();
                         charStateOpponent.changeState_SM0(charStateOpponent.characterDeathState);
+                        playerParentControl.score++;
+                        TextMeshProUGUI scorevar = GameObject.Find("ScoreBoard" + playerParentControl.playerIndex).GetComponent<TextMeshProUGUI>();
+                        scorevar.text = "Player " + (playerParentControl.playerIndex + 1) + ": " + playerParentControl.score;
                         break;
                     }
                     else
