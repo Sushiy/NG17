@@ -22,11 +22,9 @@ public class CharacterIdleState : CharacterStateBase {
             onEndState(charStateController.characterAttackState);
         }
 
-        if (
-            Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.x) > 0.0f ||
-            Mathf.Abs(playerParentControl.charInputs[(int)charType].moveAxis.y) > 0.0f
-            )
+        if (playerParentControl.charInputs[(int)charType].moveAxis.sqrMagnitude > 0.01f)
         {
+            Debug.Log("go to move");
             onEndState(charStateController.characterMoveState);
         }
     }
