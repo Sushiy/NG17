@@ -41,13 +41,14 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager> {
     {
         isGameStarted = true;
         isMenuStarted = false;
+        Debug.Log("AUDIO: playing gameplayMusic");
     }
 
     public void PlayMenuMusic()
     {
         isGameStarted = false;
         isMenuStarted = true;
-
+        Debug.Log("AUDIO: playingMenuMusic");
     }
 
 
