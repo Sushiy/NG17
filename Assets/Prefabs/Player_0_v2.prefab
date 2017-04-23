@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4115209141532816}
   - component: {fileID: 114677175655336958}
+  - component: {fileID: 114552897924306064}
+  - component: {fileID: 82473737799503274}
   m_Layer: 8
   m_Name: Player_0_v2
   m_TagString: Untagged
@@ -40,6 +42,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82473737799503274
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659509371632486}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114552897924306064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659509371632486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebcf359d17f3f341a07e5841426997c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stun: {fileID: 8300000, guid: 992b889d5d9e295449ea6188cf5d32ab, type: 3}
+  stun2: {fileID: 8300000, guid: a6225bd002ae0434eb0ff9cad42d31f0, type: 3}
+  sfxAudioSource: {fileID: 82473737799503274}
 --- !u!114 &114677175655336958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -62,14 +158,15 @@ MonoBehaviour:
   rightStickY: 0
   triggerAxis: 0
   isXboxCtrl: 1
+  score: 0
   SpawnpointParent: {fileID: 0}
   _charSettings:
     attackSphereCastRadius: 0.75
     attackLength: 2
-    stunTime: 0
+    stunTime: 2
     respawnDelay: 2
     moveSpeed: 10
-    gravityPower: 4
+    gravityPower: 6
     gravityCurve:
       serializedVersion: 2
       m_Curve:
