@@ -1,0 +1,35 @@
+Event	ID	Name			Wwise Object Path	Notes
+	124361234	Stunned			\Default Work Unit\Stunned	
+	186852181	Thunder			\Default Work Unit\Thunder	
+	1290008369	Level_1			\Default Work Unit\Level_1	
+	1290008370	Level_2			\Default Work Unit\Level_2	
+	1290008371	Level_3			\Default Work Unit\Level_3	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1208172739	States			\Default Work Unit\States	
+
+Switch	ID	Name	Switch Group			Notes
+	186852181	Thunder	States			
+	1277114377	State_4	States			
+	1277114380	State_1	States			
+	1277114382	State_3	States			
+	1277114383	State_2	States			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	799692924	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\New Switch Container\New Sound SFX\Wwise Silence	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	38444990	StingerUpbeat2	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\StingerUpbeat2_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\StingerUpbeat2\StingerUpbeat2		529344
+	68142422	March	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\March_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\State3\March\March		3969144
+	82929075	StringQuartet	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\StringQuartet_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\Theme_State1\Var_1\StringQuartet		3175344
+	128895394	ViolinMarc	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\ViolinMarc_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\Theme_State1\Var_2\ViolinMarc		3190688
+	412333794	triangle	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\triangle_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\StingerThunder\triangle\triangle		639596
+	428170436	ViolinMarcVariationFinal	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\ViolinMarcVariationFinal_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\Theme_State2\Var_1\ViolinMarcVariationFinal		3439944
+	437760174	StingerTuba	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\StingerTuba_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\StingerThunder\StingerTuba\StingerTuba		1102644
+	494381030	Stun	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\Stun_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stunned\Stun		156516
+	585206778	StringPizz	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\StringPizz_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\Theme_State2\Var_1\StringPizz		2920484
+	870512284	StringQuartet2	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\StringQuartet2_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\Theme_State1\Var_2\StringQuartet2		3175344
+	969302257	Stun2	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\Stun2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stunned\Stun2		165520
+	996590402	thunder	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\thunder_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\New Switch Container\thunder		1021692
+	1073624190	LouderTheme	C:\users\crossover\My Documents\WwiseProjects\DanceProject\.cache\Windows\SFX\LouderTheme_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Switch Container\State_4\Theme_State3\LouderTheme		2116944
+

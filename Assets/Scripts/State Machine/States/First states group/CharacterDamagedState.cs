@@ -18,6 +18,9 @@ public class CharacterDamagedState : CharacterStateBase
     {
         base.onEnterState();
 
+        playerParentControl.playerAudio.PlayStunStinger();
+
+
         //Stunned for 2seconds
         counter += Time.deltaTime;
 
