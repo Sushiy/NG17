@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     public CharacterStateController realPlayerSC { get { return _realPlayerSC; } }
     public CharacterStateController ghostPlayerSC { get { return _ghostPlayerSC; } }
 
-  
-
     public float leftStickX, leftStickY, rightStickX, rightStickY, triggerAxis;
 
     public bool isXboxCtrl = true;
@@ -55,14 +53,12 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-
         realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         ghostPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
         _realPlayerSC = realPlayer.GetComponent<CharacterStateController>();
         _ghostPlayerSC = ghostPlayer.GetComponent<CharacterStateController>();
         _realPlayerSC.Init(this, CharacterTypes.human);
         _ghostPlayerSC.Init(this, CharacterTypes.ghost);
-        //realPlayer = GameObject.Instantiate(characterPrefab, transform.position, transform.rotation, transform);
 
 
         if (Input.GetJoystickNames().Length <= playerIndex)

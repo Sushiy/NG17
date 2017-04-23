@@ -6,23 +6,29 @@ public class CharacterAttackState : CharacterStateBase
 {
     CharacterStateBase nextQueuedState;
 
+    public bool isAttacking = false;
+    public LayerMask layers;
+    public void EndAttack()
+    {
+        onEndState(nextQueuedState);
+    }
+
     protected override void onEnterState()
     {
         base.onEnterState();
 
         nextQueuedState = charStateController.characterIdleState;
+        charStateController.anim.SetTrigger("tAttack");
     }
 
     public override void OnUpdateState()
     {
         base.OnUpdateState();
         
-        if(charType == 0)
+        if(charType == 0 && isAttacking)
         {
             attack();
         }
-        
-        onEndState(nextQueuedState);
 
     }
 
@@ -30,38 +36,47 @@ public class CharacterAttackState : CharacterStateBase
     protected override void onEndState(CharacterStateBase nextState)
     {
         charStateController.changeState_SM0(nextState);
-
+        charStateController.knife.SetActive(false); 
         base.onEndState(nextState);
     }
 
     public void attack()
     {
-        Debug.Log("attack");
-        RaycastHit hit;
+        RaycastHit[] hitArray;
         Vector3 position = transform.position;
         Vector3 direction = transform.forward;
         Debug.DrawLine(position, position + direction, Color.red);
-        if (Physics.SphereCast(position, playerParentControl.charSettings.attackSphereCastRadius, direction, out hit, playerParentControl.charSettings.attackLength))
+        charStateController.knife.SetActive(true);
+
+        Debug.Log("attack");
+        hitArray = Physics.SphereCastAll(position, playerParentControl.charSettings.attackSphereCastRadius, direction, playerParentControl.charSettings.attackLength, layers);
+        if(hitArray.Length > 0)
         {
-            int layer = hit.collider.gameObject.layer;
-            if (layer >= 8 && layer <= 11 && (layer != (8 + playerParentControl.playerIndex)))
+            foreach(RaycastHit hit in hitArray)
             {
-                Debug.Log("we hit " + hit.collider.gameObject.layer.ToString());
-                if(hit.collider.gameObject.tag == "Human")
+                if(hit.collider.gameObject.layer != playerParentControl.gameObject.layer)
                 {
-                    //you send your opponent to the death state
-                    CharacterStateController charStateOpponent = hit.collider.gameObject.GetComponent<CharacterStateController>();
-                    charStateOpponent.changeState_SM0(charStateOpponent.characterDeathState);
-                    
-                }
-                else
-                {
-                    //you get sent to the damaged also called the stunned state
-                    //Debug.Log("Stun");
-                    //onEndState(charStateController.characterDamagedState);
-                    nextQueuedState = charStateController.characterDamagedState;
+                    Debug.Log("we hit " + hit.collider.gameObject.layer.ToString() + hit.collider.gameObject.tag);
+                    if (hit.collider.gameObject.tag == "Human")
+                    {
+                        //you send your opponent to the death state
+                        CharacterStateController charStateOpponent = hit.collider.gameObject.GetComponent<CharacterStateController>();
+                        charStateOpponent.changeState_SM0(charStateOpponent.characterDeathState);
+                        break;
+                    }
+                    else
+                    {
+                        //you get sent to the damaged also called the stunned state
+                        //Debug.Log("Stun");
+                        //onEndState(charStateController.characterDamagedState);
+                        charStateController.anim.SetTrigger("tStunned");
+                        nextQueuedState = charStateController.characterDamagedState;
+                    }
+
                 }
             }
         }
+        isAttacking = false;
+
     }
 }

@@ -8,6 +8,7 @@ public class CharacterMoveState : CharacterStateBase
     protected override void onEnterState()
     {
         base.onEnterState();
+        charStateController.anim.SetBool("bWalking", true);
 
     }
 
@@ -19,6 +20,7 @@ public class CharacterMoveState : CharacterStateBase
         float charSpeed = playerParentControl.charSettings.moveSpeed;
 
         move(moveAxis, charSpeed);
+
 
 
         bool attacking = playerParentControl.charInputs[(int)charType].attack;
@@ -63,6 +65,7 @@ public class CharacterMoveState : CharacterStateBase
     protected override void onEndState(CharacterStateBase nextState)
     {
         charStateController.changeState_SM0(nextState);
+        charStateController.anim.SetBool("bWalking", false);
 
         base.onEndState(nextState);
     }
